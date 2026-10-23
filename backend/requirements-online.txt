@@ -1,4 +1,4 @@
-fastapi
+﻿fastapi
 uvicorn
 SQLAlchemy
 PyJWT
@@ -7,3 +7,4 @@ python-multipart
 python-dotenv
 requests
 psutil
+psycopg[binary]
