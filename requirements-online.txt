@@ -1,3 +1,4 @@
+@'
 fastapi
 uvicorn
 SQLAlchemy
@@ -5,3 +6,4 @@ PyJWT
 pwdlib[argon2]
 python-multipart
 psycopg[binary]
+'@ | Set-Content -Path "D:\JarvisAI\backend\requirements-online.txt" -Encoding utf8
