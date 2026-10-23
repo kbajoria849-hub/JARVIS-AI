@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS AI</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <section id="login-panel">
+        <h2>JARVIS Login</h2>
+        <form id="login-form">
+            <label for="login-username">Username</label>
+
+            <input id="login-username" name="username" type="text" autocomplete="username" required>
+            <label for="login-password">Password</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+            <button type="submit">Login</button>
+            <p id="login-message" role="status"></p>
+            <button id="logout-button" type="button">Log out</button>
+        </form>
+    </section>
+    <div class="app">
+        <header>
+            <div class="brand">J<span>.</span>A.R.V.I.S</div>
+            <div class="status"><span class="dot"></span> LOCAL AI SYSTEM</div>
+        </header>
+
+        <main>
+            <p class="eyebrow">PERSONAL ARTIFICIAL INTELLIGENCE</p>
+            <h1>Your assistant.<br><span>Your intelligence.</span></h1>
+            <div class="orb-wrap">
+                <div class="orb-ring ring-one"></div>
+                <div class="orb-ring ring-two"></div></div>
+
+                <p id="status-text">SYSTEM READY</p>
+                <div class="system-status">
+                    <span>BACKEND: <strong id="backend-status">CHECKING...</strong></span>
+                    <span>OLLAMA: <strong id="ollama-status">CHECKING...</strong></span>
+                </div>
+
+                <section class="monitor-panel">
+                    <h2>SYSTEM MONITOR</h2>
+
+                    <div class="monitor-item">
+                        <div class="monitor-label">
+                            <span>CPU USAGE</span>
+                            <strong id="cpu-value">--%</strong>
+                        </div>
+                        <div class="monitor-track">
+                            <div class="monitor-fill" id="cpu-bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="monitor-item">
+                        <div class="monitor-label">
+                            <span>RAM USAGE</span>
+                            <strong id="ram-value">--%</strong>
+                        </div>
+                        <div class="monitor-track">
+                            <div class="monitor-fill" id="ram-bar"></div>
+                        </div>
+                        <p id="ram-details">Waiting for system data...</p>
+                    </div>
+                    <div class="monitor-item">
+                        <div class="monitor-label">
+                            <span>BATTERY</span>
+                            <strong id="battery-value">--</strong>
+                        </div>
+                        <p id="battery-details">Checking battery...</p>
+                    </div>
+
+                    <p id="monitor-updated">Waiting for system data...</p>
+                </section>
+                
+                <section class="chat">
+                    <div id="messages" class="messages">
+                        <div class="bubble jarvis">JARVIS online. How may I assist you?</div>
+                    </div>
+
+                    <form id="chat-form">
+                        <input id="message-input" type="text" placeholder="Ask JARVIS anything..."
+                        autocomplete="off" required>
+                        <button type="submit" id="send-button">SEND</button>
+                    </form>
+                    <div class="voice-controls">
+                        <button type="button" id="mic-button">TALK TO JARVIS</button>
+                        <button type="button" id="stop-voice-button">STOP SPEAKING</button>
+                    </div>
+                    <p class="hint">Powered by your local Ollama model</p>
+                </section>
+
+                <section class="quick-actions">
+                    <h2>JARVIS QUICK</h2>
+                    <p>Choose a task to execute.</p>
+
+                    <div class="quick-actions-grid">
+                        <button onclick="executeAutomation('open_calculator')">Calculator</button>
+                        <button onclick="executeAutomation('open_notepad')">Notepad</button>
+                        <button onclick="executeAutomation('open_youtube')">Youtube</button>
+                        <button onclick="executeAutomation('open_google')">Google</button>
+                        <button onclick="executeAutomation('open_github')">Github</button>
+                    </div>
+                    <br><br>
+                    <!-- Study Mode Section -->
+                     <div class="study-mode">
+                        <h2>Study Mode</h2>
+                        <p>Open your study tools with one click.</p>
+
+                        <button id="studyModeBtn" type="button">Start Study Mode</button>
+                    </div>
+                </section>
+        </main>
+
+        <section class="memory-panel">
+            <h2>JARVIS MEMORY</h2>
+            <p>Notes saved by your assistant</p>
+            <form id="memory-form">
+                <input id="memory-input" type="text" maxlength="500"
+                    placeholder="Enter a note to remember..." required>
+                <button type="submit">SAVE NOTE</button>
+            </form>
+            <p id="memory-status" role="status"></p>
+            <div id="memory-list">loading saved notes...</div>
+        </section>
+
+        <section class="task-panel">
+            <h2>JARVIS TASK MANAGER</h2>
+            <p>Manage your tasks and track your progress.</p>
+
+            <form id="task-form">
+                <input id="task-input" type="text" maxlength="200"
+                    placeholder="Enter a new task..." required>
+                    <input id="task-due" type="datetime-local" aria-label="Due date and time">
+                <button type="submit">ADD TASK</button>
+            </form>
+            <p id="task-status" role="status"></p>
+            <button id="enable-reminders" type="button"
+            class="task-action">ENABLE REMINDER NOTIFICATIONS</button>
+            <p id="reminder-status" role="status">Reminders are not enabled yet.</p>
+            <div id="task-summary">
+                <p>Pending tasks: <span id="pending-count">0</span></p>
+                <p>Overdue tasks: <span id="overdue-count">0</span></p>
+                <p>Completed tasks: <span id="completed-count">0</span></p>
+            </div>
+            <div id="task-list">loading tasks...</div>
+        </section>
+
+        <section class="file-assistant panel">
+            <h2>Intelligent File Assistant</h2>
+            <p>Search files by name or file extension.</p>
+            <div class="file-search-controls">
+                <input type="text" id="fileQuery" placeholder="Search filename (e.g. project)">
+                <input type="text" id="fileExtension" placeholder="Extension (e.g. .html)">
+                <button id="searchFilesBtn">Search Files</button>
+            </div>
+
+            <p id="fileSearchStatus" role="status"></p>
+            <div id="fileResults"></div>
+        </section>
+
+        <footer>JARVIS AI . PERSONAL ASSISTANT</footer>
+    </div>
+
+    <script src="/script.js?v=20261021"></script>
+</body>
+</html>
