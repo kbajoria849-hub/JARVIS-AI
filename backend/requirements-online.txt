@@ -8,3 +8,4 @@ python-dotenv
 requests
 psutil
 psycopg[binary]
+google-genai
