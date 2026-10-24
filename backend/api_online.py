@@ -17,15 +17,17 @@ from auth_online import (
 
 app = FastAPI(title="JARVIS Online API")
 
-origins = [
+allowed_origins = [
     origin.strip()
     for origin in os.getenv("FRONTEND_ORIGIN", "").split(",")
     if origin.strip()
 ]
 
+print("JARVIS CORS allowed origins:", allowed_origins)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=allowed_origins,
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["Authorization", "Content-Type"],
 )
