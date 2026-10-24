@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d18">
+    <title>JARVIS Online | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main
+    class="login-container dashboard">
+        <div class="logo">J</div>
+
+        <p class="eyebrow">SYSTEM ONLINE</p>
+        <h1>JARVIS <span>Dashboard</span></h1>
+        <p class="subtitle">Your personal AI assistant is connected.</p>
+
+        <section class="status-card">
+            <span class="status-dot"></span>
+            <div>
+                <strong>Connection Status</strong>
+                <p>Authenticated with JARVIS Online API</p>
+            </div>
+        </section>
+
+        <section class="dashboard-grid">
+            <article class="feature-card">
+                <span class="feature-icon">✦</span>
+                <h2>AI Chat</h2>
+                <p>Talk with your assistant.</p>
+                <span class="feature-status">Coming next</span>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">▤</span>
+                <h2>Notes</h2>
+                <p>Keep track of important ideas.</p>
+                <span class="feature-status">Coming next</span>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-icon">✓</span>
+                <h2>Tasks</h2>
+                <p>Organize your daily work.</p>
+                <span class="feature-status">Coming next</span>
+            </article>
+        </section>
+
+        <button id="logoutButton" type="button">Log Out</button>
+        <p id="dashboardMessage" role="status" aria-live="polite"></p>
+        <p class="footer">JARVIS Online · Dashboard Preview</p>
+    <section class="dashboard-card" id="chatCard">
+        <h2>AI chat</h2>
+        
+        <div id="chatMessages" class="chat-messages" aria-live="polite">
+            <p class="chat-bubble jarvis-message">Hello! I'm JARVIS. How can I help you?</p>
+        </div>
+
+        <form id="chatForm">
+    <label for="chatInput">Message JARVIS</label>
+
+    <textarea
+        id="chatInput"
+        rows="3"
+        maxlength="4000"
+        placeholder="Type or speak your message..."
+        required
+    ></textarea>
+
+    <button type="button" id="voiceButton">
+        🎤 Speak
+    </button>
+
+    <button type="submit" id="chatSendButton">
+        Send
+    </button>
+</form>
+
+    <p id="chatStatus" role="status" aria-live="polite"></p></section>
+
+    </section></main>
+
+        <script src="dashboard.js"></script>
+</body>
+</html>

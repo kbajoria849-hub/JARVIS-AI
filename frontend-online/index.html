@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d18">
+    <title>JARVIS Online | Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main
+    class="login-container">
+        <div class="logo">J</div>
+
+        <p class="eyebrow">PERSONAL AI ASSISTANT</p>
+        <h1>Welcome to <span>JARVIS</span></h1>
+        <p class="subtitle">Your assistant, available anywhere.</p>
+
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input
+                id="username"
+                name="username"
+                type="text"
+                placeholder="Enter your username"
+                autocomplete="username"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button id="loginButton" type="submit">Sign In</button>
+            <p id="message" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="footer">JARVIS Online · Secure Access</p></main>
+        <script src="script.js"></script>
+</body>
+</html>
